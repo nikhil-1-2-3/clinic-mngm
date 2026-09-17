@@ -43,16 +43,7 @@ jobs:
           COMMAND_ID=$(aws ssm send-command \
             --instance-ids "$EC2_INSTANCE_ID" \
             --document-name "AWS-RunShellScript" \
-            --parameters 'commands=[
-              "cd /home/ec2-user/clinic-mngm",
-              "git fetch origin main",
-              "git reset --hard origin/main",
-              "cd backend",
-              "npm install --omit=dev",
-              "pm2 delete clinic-backend || true",
-              "pm2 start server.js --name clinic-backend",
-              "pm2 save"
-            ]' \
+            --parameters 'commands=["cd /home/ec2-user/clinic-mngm","git fetch origin main","git reset --hard origin/main","cd backend","npm install --omit=dev","pm2 delete clinic-backend || true","pm2 start server.js --name clinic-backend","pm2 save"]' \
             --region "$AWS_REGION" \
             --query 'Command.CommandId' \
             --output text)
