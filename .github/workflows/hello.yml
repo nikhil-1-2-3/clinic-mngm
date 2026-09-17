@@ -1,21 +1,21 @@
-name: Hello GitHub Actions
+name: GitHub Actions Practice
 
 on:
   push:
 
 jobs:
-  hello:
+  practice:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Say Hello
-        run: echo "Hello from GitHub Actions!"
+      - name: Show Node version
+        run: node --version
 
-      - name: Show current directory
-        run: pwd
+      - name: Show npm version
+        run: npm --version
 
-      - name: List files
+      - name: Show files
         run: ls -la
