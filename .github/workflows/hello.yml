@@ -74,4 +74,3 @@ jobs:
 
           echo "Backend health check failed!"
           exit 1
-EOF
